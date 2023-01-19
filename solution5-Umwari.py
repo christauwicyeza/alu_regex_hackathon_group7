@@ -1,7 +1,7 @@
 import re
 
 def is_valid_joke(joke):
-    match = re.match(r"Why did the .? \? Because.", joke)
+    match = re.match(r"Why did the (.*?) \? Because(.*)")
     if match:
         return True
     else:
