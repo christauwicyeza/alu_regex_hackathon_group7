@@ -1,14 +1,15 @@
-import re
+#The jokes should match the pattern "Why did the ... ? Because...", where the first part of the pattern can be any string of characters, and the second part can be any string of characters
 
-def is_valid_joke(joke):
-    match = re.match(r"Why did the (.*?) \? Because(.*)")
-    if match:
-        return True
-    else:
-        return False
+import re 
 
-print(is_valid_joke("Why did the chicken cross the road? To get to the other side.")) #True
-print(is_valid_joke("Why did the tomato turn red? Because it saw the salad dressing.")) #True
-print(is_valid_joke("Why did the math book look sad? Because it had too many problems.")) #True
-print(is_valid_joke("Why did the cookie go to the doctor? Because it was feeling crumbly.")) #True
+pattern = re.compile(r"(Why did the (.*?) \? Because(.*))")
+
+joke = "Why did the tomato turn red? Because it saw the salad dressing."
+
+match = pattern.match(joke)
+if match:
+    print("First part:", match.group(1))
+    print("Second part:", match.group(2))
+else:
+    print ("It is not a joke")
 
